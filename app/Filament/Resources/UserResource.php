@@ -2,23 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
+use App\Filament\Resources\UserResource\Pages;
+use App\Filament\Resources\UserResource\RelationManagers\OrdersRelationManager;
 use App\Models\User;
-use Filament\Tables;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\Page;
-use Filament\Tables\Table;
-use Filament\Resources\Resource;
-use Filament\Forms\Components\TextInput;
-use Illuminate\Database\Eloquent\Builder;
 use Filament\Resources\Pages\CreateRecord;
-use Filament\Forms\Components\DateTimePicker;
-use App\Filament\Resources\UserResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Filament\Resources\UserResource\RelationManagers\OrdersRelationManager;
-use Filament\Actions\DeleteAction;
+use Filament\Resources\Resource;
+use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 
 class UserResource extends Resource
 {
@@ -26,29 +21,33 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
+    protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?int $navigationSort = 1;
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 TextInput::make('name')
-                ->required(),
+                    ->required(),
 
                 TextInput::make('email')
-                ->label('Email Address')
-                ->email()
-                ->maxLength(255)
-                ->unique(ignoreRecord: true)
-                ->required(),
+                    ->label('Email Address')
+                    ->email()
+                    ->maxLength(255)
+                    ->unique(ignoreRecord: true)
+                    ->required(),
 
                 DateTimePicker::make('email_verified_at')
-                ->label('Email Verified At')
-                ->default(now()),
+                    ->label('Email Verified At')
+                    ->default(now()),
 
                 TextInput::make('password')
-                ->label('Password')
-                ->password()
-                ->dehydrated(fn($state) => filled($state))
-                ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
+                    ->label('Password')
+                    ->password()
+                    ->dehydrated(fn ($state) => filled($state))
+                    ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord),
             ]);
     }
 
@@ -57,32 +56,32 @@ class UserResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                ->searchable(),
-                
+                    ->searchable(),
+
                 TextColumn::make('email')
-                ->searchable(),
+                    ->searchable(),
 
                 TextColumn::make('email_verified_at')
-                ->dateTime()
-                ->sortable(),
+                    ->dateTime()
+                    ->sortable(),
 
                 TextColumn::make('created_at')
-                ->dateTime()
-                ->sortable()
+                    ->dateTime()
+                    ->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make()
-                ])
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -90,8 +89,13 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            OrdersRelationManager::class
+            OrdersRelationManager::class,
         ];
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'email'];
     }
 
     public static function getPages(): array
