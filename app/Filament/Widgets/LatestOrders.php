@@ -43,7 +43,7 @@ class LatestOrders extends BaseWidget
                         'cancelled' => 'danger'
                     })
                     ->icon(fn (string $state): string => match ($state) {
-                        'new' => 'heroicon-m-sparkle',
+                        'new' => 'heroicon-m-sparkles',
                         'processing' => 'heroicon-m-arrow-path',
                         'shipped' => 'heroicon-m-truck',
                         'delivered' => 'heroicon-m-check-badge',
@@ -66,8 +66,8 @@ class LatestOrders extends BaseWidget
             ])
             ->actions([
                 Action::make('View Order')
-                ->url(fn (Order  $record): string => OrderResource::getUrl('view', ['record' => $record]))
-                ->icon('heroicon-m-eye'),
+                    ->url(fn (Order $record): string => OrderResource::getUrl('view', ['record' => $record]))
+                    ->icon('heroicon-m-eye'),
             ]);
     }
 }
