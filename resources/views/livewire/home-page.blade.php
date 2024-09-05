@@ -8,14 +8,14 @@
                 <div>
                     <h1
                         class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
-                        Start your journey with <span class="text-blue-600">DCodeMania</span></h1>
-                    <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Purchase wide varities of electronics
-                        products like Smartphones, Laptops, Smartwatches, Television and many more.</p>
+                        Start your journey with <span class="text-blue-600">CareSource</span></h1>
+                    <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Purchase wide varities of essentials
+                        products like Alcohols, Cleaning Solutions, Tissues and many more.</p>
 
                     <!-- Buttons -->
                     <div class="mt-7 grid gap-3 w-full sm:inline-flex">
                         <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                            href="/register">
+                            href="/products">
                             Get started
                             <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -24,14 +24,14 @@
                             </svg>
                         </a>
                         <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                            href="/contact">
+                            target="_blank" href="https://www.facebook.com/torrecampsmktg">
                             Contact sales team
                         </a>
                     </div>
                     <!-- End Buttons -->
 
                     <!-- Review -->
-                    <div class="mt-6 lg:mt-10 grid grid-cols-2 gap-x-5">
+                    {{-- <div class="mt-6 lg:mt-10 grid grid-cols-2 gap-x-5">
                         <!-- Review -->
                         <div class="py-5">
                             <div class="flex space-x-1">
@@ -154,7 +154,7 @@
                             </div>
                         </div>
                         <!-- End Review -->
-                    </div>
+                    </div> --}}
                     <!-- End Review -->
                 </div>
                 <!-- End Col -->
@@ -169,8 +169,8 @@
 
                     <!-- SVG-->
                     <div class="absolute bottom-0 start-0">
-                        <svg class="w-2/3 ms-auto h-auto text-white dark:text-slate-900" width="630"
-                            height="451" viewBox="0 0 630 451" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-2/3 ms-auto h-auto text-white dark:text-slate-900" width="630" height="451"
+                            viewBox="0 0 630 451" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="531" y="352" width="99" height="99" fill="currentColor" />
                             <rect x="140" y="352" width="106" height="99" fill="currentColor" />
                             <rect x="482" y="402" width="64" height="49" fill="currentColor" />
@@ -309,7 +309,7 @@
 
     {{-- Customer Review Start --}}
     <section class="py-14 font-poppins dark:bg-gray-800">
-        <div class="max-w-6xl px-4 py-6 mx-auto lg:py-4 md:px-6">
+        {{-- <div class="max-w-6xl px-4 py-6 mx-auto lg:py-4 md:px-6">
             <div class="max-w-xl mx-auto">
                 <div class="text-center ">
                     <div class="relative flex flex-col items-center">
@@ -761,7 +761,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </section>
     {{-- Customer Review End --}}
 
