@@ -60,15 +60,15 @@
                     <h2 class="text-lg font-semibold mb-4">Summary</h2>
                     <div class="flex justify-between mb-2">
                         <span>Subtotal</span>
-                        <span>{{ Number::currency($grand_total, 'PHP') }}</span>
+                        <span>{{ Number::currency($sub_total, 'PHP') }}</span>
                     </div>
                     <div class="flex justify-between mb-2">
                         <span>Taxes</span>
                         <span>{{ Number::currency(0, 'PHP') }}</span>
                     </div>
                     <div class="flex justify-between mb-2">
-                        <span>Shipping</span>
-                        <span>{{ Number::currency(0, 'PHP') }}</span>
+                        <span>Shipping Fee</span>
+                        <span>{{ Number::currency(100, 'PHP') }}</span>
                     </div>
                     <hr class="my-2">
                     <div class="flex justify-between mb-2">

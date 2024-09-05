@@ -28,7 +28,7 @@
                         <p class="mb-2 text-sm leading-5 text-gray-600 dark:text-gray-400 ">
                             Order Number: </p>
                         <p class="text-base font-semibold leading-4 text-gray-800 dark:text-gray-400">
-                            29</p>
+                            {{ $order->id }}</p>
                     </div>
                     <div class="w-full px-4 mb-4 md:w-1/4">
                         <p class="mb-2 text-sm leading-5 text-gray-600 dark:text-gray-400 ">
@@ -70,7 +70,7 @@
                                 <div class="flex items-center justify-between w-full">
                                     <p class="text-base leading-4 text-gray-800 dark:text-gray-400">Shipping</p>
                                     <p class="text-base leading-4 text-gray-600 dark:text-gray-400">
-                                        {{ Number::currency(0, 'PHP') }}</p>
+                                        {{ Number::currency(100, 'PHP') }}</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between w-full">

@@ -152,6 +152,11 @@ class CartManagement
     // calculate grand total
     public static function calculateGrandTotal($items)
     {
+        return array_sum(array_column($items, 'total_amount')) + 100;
+    }
+
+    public static function calculateSubTotal($items)
+    {
         return array_sum(array_column($items, 'total_amount'));
     }
 }

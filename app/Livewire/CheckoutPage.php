@@ -74,7 +74,7 @@ class CheckoutPage extends Component
         $order->payment_status = 'pending';
         $order->status = 'new';
         $order->currency = 'php';
-        $order->shipping_amount = 0;
+        $order->shipping_amount = 100;
         $order->shipping_method = 'standard';
         $order->notes = 'Order Placed by '.auth()->user()->name;
 
@@ -106,10 +106,12 @@ class CheckoutPage extends Component
     public function render()
     {
         $cart_items = CartManagement::getCartItemsFromCookie();
+        $sub_total = CartManagement::calculateSubTotal($cart_items);
         $grand_total = CartManagement::calculateGrandTotal($cart_items);
 
         return view('livewire.checkout-page', [
             'cart_items' => $cart_items,
+            'sub_total' => $sub_total,
             'grand_total' => $grand_total,
         ]);
     }

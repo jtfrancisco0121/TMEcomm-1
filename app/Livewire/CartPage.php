@@ -15,10 +15,13 @@ class CartPage extends Component
 
     public $grand_total;
 
+    public $sub_total;
+
     public function mount()
     {
         $this->cart_items = CartManagement::getCartItemsFromCookie();
         $this->grand_total = CartManagement::calculateGrandTotal($this->cart_items);
+        $this->sub_total = CartManagement::calculateSubTotal($this->cart_items);
 
     }
 
@@ -26,18 +29,21 @@ class CartPage extends Component
     {
         $this->cart_items = CartManagement::removeCartItem($product_id);
         $this->grand_total = CartManagement::calculateGrandTotal($this->cart_items);
+        $this->sub_total = CartManagement::calculateGrandTotal($this->cart_items);
         $this->dispatch('update-cart-count', total_count: count($this->cart_items))->to(Navbar::class);
     }
 
     public function increaseQty($product_id)
     {
         $this->cart_items = CartManagement::incrementQuantityToCartItem($product_id);
+        $this->sub_total = CartManagement::calculateSubTotal($this->cart_items);
         $this->grand_total = CartManagement::calculateGrandTotal($this->cart_items);
     }
 
     public function decreaseQty($product_id)
     {
         $this->cart_items = CartManagement::decrementQuantityToCartItem($product_id);
+        $this->sub_total = CartManagement::calculateSubTotal($this->cart_items);
         $this->grand_total = CartManagement::calculateGrandTotal($this->cart_items);
     }
 

@@ -161,7 +161,7 @@
                             Subtotal
                         </span>
                         <span>
-                            {{ Number::currency($grand_total, 'PHP') }}
+                            {{ Number::currency($sub_total, 'PHP') }}
                         </span>
                     </div>
                     <div class="flex justify-between mb-2 font-bold">
@@ -177,7 +177,7 @@
                             Shipping Fee
                         </span>
                         <span>
-                            {{ Number::currency(0, 'PHP') }}
+                            {{ Number::currency(100, 'PHP') }}
                         </span>
                     </div>
                     <hr class="bg-slate-400 my-4 h-1 rounded">

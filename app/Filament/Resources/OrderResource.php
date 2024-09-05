@@ -48,7 +48,6 @@ class OrderResource extends Resource
 
                         Select::make('payment_method')
                             ->options([
-                                'stripe' => 'Stripe',
                                 'cod' => 'Cash on Delivery',
                             ])
                             ->required(),
@@ -102,7 +101,7 @@ class OrderResource extends Resource
                                 'lalamove' => 'Lalamove',
                                 'pickup' => 'Pick Up',
                             ])
-                            ->default('pickup')
+                            ->default('standard')
                             ->required(),
 
                         Textarea::make('notes')
@@ -244,7 +243,7 @@ class OrderResource extends Resource
     public static function getRelations(): array
     {
         return [
-            AddressRelationManager::class
+            AddressRelationManager::class,
         ];
     }
 
@@ -255,7 +254,7 @@ class OrderResource extends Resource
 
     public static function getNavigationBadgeColor(): string|array|null
     {
-        return static::getModel()::count() > 10 ? 'success': 'danger';
+        return static::getModel()::count() > 10 ? 'success' : 'danger';
     }
 
     public static function getPages(): array
